@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Michael Gifford — Full-Stack Web Developer with 10+ years of experience building custom web apps and mobile apps." />
+  <title>Michael Gifford — Full-Stack Web Developer</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1e3a5f', dark: '#0f172a', light: '#2d5282' },
+            brand: '#3b82f6',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-300 transition-shadow duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="#hero" class="font-bold text-lg text-navy hover:text-brand transition-colors">
+          Michael Gifford
+        </a>
+
+        <!-- Desktop nav -->
+        <ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <li><a href="#about"      class="nav-link text-slate-600 hover:text-brand transition-colors">About</a></li>
+          <li><a href="#skills"     class="nav-link text-slate-600 hover:text-brand transition-colors">Skills</a></li>
+          <li><a href="#projects"   class="nav-link text-slate-600 hover:text-brand transition-colors">Projects</a></li>
+          <li><a href="#experience" class="nav-link text-slate-600 hover:text-brand transition-colors">Experience</a></li>
+          <li>
+            <a href="#contact" class="bg-brand text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false"
+                class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden border-t border-slate-300">
+        <ul class="py-3 space-y-1 text-sm font-medium">
+          <li><a href="#about"      class="nav-link block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100">About</a></li>
+          <li><a href="#skills"     class="nav-link block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100">Skills</a></li>
+          <li><a href="#projects"   class="nav-link block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100">Projects</a></li>
+          <li><a href="#experience" class="nav-link block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100">Experience</a></li>
+          <li><a href="#contact"    class="nav-link block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-100">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero" class="hero-bg pt-32 pb-24 px-4 sm:px-6 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-blue-300 font-semibold uppercase tracking-widest text-sm mb-3">Full-Stack Web Developer</p>
+      <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight mb-6">
+        Michael Gifford
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+        10+ years building custom web apps, platforms, and mobile apps —
+        from concept to launch. Laravel, Vue, React, Flutter, and beyond.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="#projects"
+           class="w-full sm:w-auto bg-brand hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+          View My Work
+        </a>
+        <a href="Michael_Gifford_Resume.pdf" download
+           class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+          Download Resume
+        </a>
+      </div>
+
+      <!-- Social links -->
+      <div class="flex items-center justify-center gap-5">
+        <!-- GitHub -->
+        <a href="https://github.com/ekim941" target="_blank" rel="noopener noreferrer"
+           aria-label="GitHub profile" class="text-slate-400 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483
+                 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466
+                 -.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832
+                 .092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688
+                 -.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0
+                 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595
+                 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012
+                 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/mike-gifford-a5452835/" target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn profile" class="text-slate-400 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136
+                     2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37
+                     4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063
+                     2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0
+                     23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222
+                     0h.003z" />
+          </svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:spongy727@gmail.com" aria-label="Send email" class="text-slate-400 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about" class="py-24 px-4 sm:px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-navy section-heading mb-12">About Me</h2>
+
+      <div class="fade-in max-w-2xl mx-auto">
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+          Full-stack web developer with <strong class="text-navy">10+ years of experience</strong> building custom
+          websites, web applications, and mobile apps for agency and direct clients. Proven ability to take
+          projects from concept to launch — including open-source packages, Flutter mobile apps, and
+          Laravel-powered platforms.
+        </p>
+        <p class="text-slate-600 text-lg leading-relaxed mb-10">
+          Skilled communicator with a track record of long-term client relationships and mentoring junior
+          developers. Seeking a remote role where deep technical range and client-focused delivery make a
+          real impact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SKILLS
+  ============================================================ -->
+  <section id="skills" class="py-24 px-4 sm:px-6 bg-slate-200">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-navy section-heading text-center mb-12">Skills</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Frontend -->
+        <div class="fade-in bg-white rounded-2xl p-6 shadow-sm border border-slate-300">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg">Frontend</h3>
+          </div>
+          <div>
+            <span class="skill-tag">HTML / CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">SCSS / Sass</span>
+            <span class="skill-tag">Alpine.js</span>
+            <span class="skill-tag">Livewire</span>
+            <span class="skill-tag">Inertia.js</span>
+            <span class="skill-tag">jQuery</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="fade-in bg-white rounded-2xl p-6 shadow-sm border border-slate-300">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg">Backend</h3>
+          </div>
+          <div>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C# / ASP.Net</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Dart / Flutter</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">RESTful APIs</span>
+            <span class="skill-tag">Apache</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">SSL / TLS</span>
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="fade-in bg-white rounded-2xl p-6 shadow-sm border border-slate-300">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg">Tools &amp; Platforms</h3>
+          </div>
+          <div>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">WordPress</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">WCAG Accessibility</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROJECTS
+  ============================================================ -->
+  <section id="projects" class="py-24 px-4 sm:px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-navy section-heading text-center mb-12">Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Talking Cities -->
+        <article class="fade-in project-card bg-white rounded-2xl border border-slate-300 shadow-sm overflow-hidden flex flex-col">
+          <div class="bg-gradient-to-br from-navy to-blue-700 h-2 w-full"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-xl text-navy mb-2">Talking Cities</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-1">
+              A multi-tenant news platform allowing journalists from various cities to publish video content
+              to multiple websites and a companion mobile app via a custom REST API.
+            </p>
+            <div class="mb-5">
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">Livewire</span>
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">REST API</span>
+              <span class="skill-tag">Multi-tenant</span>
+            </div>
+            <a href="https://talkingcities.com/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-brand font-semibold text-sm hover:text-blue-700 transition-colors mt-auto">
+              Visit Site
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Eco-fyle -->
+        <article class="fade-in project-card bg-white rounded-2xl border border-slate-300 shadow-sm overflow-hidden flex flex-col">
+          <div class="bg-gradient-to-br from-emerald-600 to-teal-500 h-2 w-full"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-xl text-navy mb-2">Eco-fyle</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-1">
+              A full-featured business formation app with a WordPress marketing site funneling visitors
+              into a Laravel-powered dashboard that guides them through the entire formation process.
+            </p>
+            <div class="mb-5">
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">Vue.js</span>
+              <span class="skill-tag">Alpine.js</span>
+              <span class="skill-tag">WordPress</span>
+            </div>
+            <a href="https://eco-fyle.com/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-brand font-semibold text-sm hover:text-blue-700 transition-colors mt-auto">
+              Visit Site
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Laravel Media Library -->
+        <article class="fade-in project-card bg-white rounded-2xl border border-slate-300 shadow-sm overflow-hidden flex flex-col">
+          <div class="bg-gradient-to-br from-violet-600 to-purple-500 h-2 w-full"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-xl text-navy mb-2">Laravel Media Library</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-1">
+              An open-source Laravel package for managing file uploads and media assets, inspired by the
+              WordPress Media Library. Authored and released for developer use.
+            </p>
+            <div class="mb-5">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">Open Source</span>
+            </div>
+            <a href="https://github.com/ekim941/media-library" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-brand font-semibold text-sm hover:text-blue-700 transition-colors mt-auto">
+              View on GitHub
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       EXPERIENCE
+  ============================================================ -->
+  <section id="experience" class="py-24 px-4 sm:px-6 bg-slate-200">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-navy section-heading text-center mb-12">Experience</h2>
+
+      <div class="space-y-10">
+
+        <!-- Bureau Gravity -->
+        <div class="fade-in timeline-item">
+          <div class="mb-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="font-bold text-lg text-navy">Senior Web Developer</h3>
+            <span class="text-slate-400 text-sm">2020 – Present</span>
+          </div>
+          <p class="text-brand font-semibold text-sm mb-3">Bureau Gravity &nbsp;·&nbsp; Aurora, IL (Remote)</p>
+          <ul class="space-y-2 text-slate-600 text-sm">
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              Designed and developed custom websites, web applications, and mobile apps for diverse agency
+              clients across multiple industries.
+            </li>
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              <span>
+                Built <strong>Talking Cities</strong> — a Laravel-based multi-tenant news platform with a companion Flutter/Dart mobile app communicating via a custom REST API.
+              </span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              <span>
+                Engineered <strong>Eco-fyle</strong> — a full-featured business formation and management
+                dashboard, handling complex state and user flows end-to-end.
+              </span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              <span>
+                Authored and released the <strong>Laravel Media Library</strong> open-source package for
+                managing file uploads and media assets within Laravel applications.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Rival Mind -->
+        <div class="fade-in timeline-item">
+          <div class="mb-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="font-bold text-lg text-navy">Senior Web Developer</h3>
+            <span class="text-slate-400 text-sm">2012 – 2020</span>
+          </div>
+          <p class="text-brand font-semibold text-sm mb-3">Rival Mind LLC &nbsp;·&nbsp; Geneva, IL (Remote)</p>
+          <ul class="space-y-2 text-slate-600 text-sm">
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              Delivered 2–3 custom WordPress websites per month, building bespoke themes and plugins
+              tailored to client needs.
+            </li>
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              Advised clients and internal teams on technical capabilities, shaping project scope and
+              reducing rework.
+            </li>
+            <li class="flex gap-2">
+              <span class="text-brand mt-0.5 shrink-0">▸</span>
+              Mentored junior developers, conducting code reviews and providing hands-on guidance.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       AWARDS & EDUCATION
+  ============================================================ -->
+  <section id="awards" class="py-24 px-4 sm:px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-navy section-heading text-center mb-12">Awards &amp; Education</h2>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <!-- Awards -->
+        <div class="fade-in bg-slate-50 rounded-2xl p-6 border border-slate-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-yellow-50 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg">Awards &amp; Certifications</h3>
+          </div>
+          <ul class="space-y-3 text-slate-600 text-sm">
+            <li class="flex gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">▸</span>
+              <span><strong>SkillsUSA</strong> — Team won State, Regional, and National Gold Medal for Web Design</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">▸</span>
+              CIW Certified Site Development Associate
+            </li>
+            <li class="flex gap-2">
+              <span class="text-yellow-500 mt-0.5 shrink-0">▸</span>
+              CIW Certified Web Design Specialist
+            </li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="fade-in bg-slate-50 rounded-2xl p-6 border border-slate-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-navy text-lg">Education</h3>
+          </div>
+          <div class="text-slate-600 text-sm">
+            <div class="font-semibold text-navy">Manatee Technical College</div>
+            <div class="text-slate-500 text-xs mb-2">June 2012</div>
+            <div>Web Design Certification &nbsp;·&nbsp; Certified Senior Web Designer</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT / FOOTER
+  ============================================================ -->
+  <section id="contact" class="hero-bg py-24 px-4 sm:px-6 text-white">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+      <p class="text-slate-300 mb-10 text-lg">
+        Open to remote full-stack roles. Feel free to reach out via email or connect on LinkedIn.
+      </p>
+
+      <a href="mailto:spongy727@gmail.com"
+         class="inline-block bg-brand hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded-lg transition-colors mb-10">
+        Spongy727@gmail.com
+      </a>
+
+      <div class="flex items-center justify-center gap-6 mb-16">
+        <a href="https://github.com/ekim941" target="_blank" rel="noopener noreferrer"
+           aria-label="GitHub" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483
+                 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466
+                 -.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832
+                 .092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688
+                 -.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0
+                 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595
+                 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012
+                 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/mike-gifford-a5452835/" target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-medium">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136
+                     2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37
+                     4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063
+                     2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0
+                     23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222
+                     0h.003z" />
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="border-t border-white/10 pt-8 text-slate-500 text-sm">
+        &copy; 2026 Michael Gifford. All rights reserved.
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
